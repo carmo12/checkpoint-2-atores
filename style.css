@@ -10,7 +10,9 @@ body {
     color: #1f2937;
 }
 
-/* CABEÇALHO */
+/* =========================
+   CABEÇALHO
+========================= */
 
 header {
     background: linear-gradient(135deg, #111827, #1e3a8a);
@@ -29,19 +31,32 @@ header p {
     color: #dbeafe;
 }
 
-/* CONTEÚDO */
+
+/* =========================
+   CONTEÚDO
+========================= */
 
 .container {
+    width: 100%;
     max-width: 1300px;
+
     margin: -25px auto 50px;
+
     padding: 0 25px;
 }
 
-/* CAMPO DE BUSCA */
+
+/* =========================
+   CAMPO DE BUSCA
+========================= */
 
 .busca {
     display: flex;
     justify-content: center;
+    align-items: center;
+
+    width: 100%;
+
     margin-bottom: 40px;
 }
 
@@ -67,29 +82,52 @@ header p {
 
 #campoBusca:focus {
     box-shadow: 0 8px 30px rgba(30, 58, 138, 0.25);
+
     transform: translateY(-2px);
 }
 
-/* GRID */
+
+/* =========================
+   GRID DOS CARDS
+========================= */
 
 .grid {
     display: grid;
 
+    /*
+       Cada card terá aproximadamente
+       292px de largura.
+    */
     grid-template-columns: repeat(
         auto-fit,
-        minmax(250px, 292px)
+        292px
     );
 
     gap: 28px;
 
+    /*
+       CENTRALIZA OS CARDS
+       HORIZONTALMENTE
+    */
     justify-content: center;
 
+    /*
+       Garante que o grid ocupe
+       toda a largura disponível.
+    */
     width: 100%;
+
+    margin: 0 auto;
 }
 
-/* CARD */
+
+/* =========================
+   CARD
+========================= */
 
 .card {
+    width: 292px;
+
     background: white;
 
     border-radius: 16px;
@@ -113,15 +151,22 @@ header p {
         0 15px 35px rgba(0, 0, 0, 0.16);
 }
 
-/* IMAGEM */
+
+/* =========================
+   IMAGEM
+========================= */
 
 .card img {
     width: 100%;
+
     height: 330px;
 
     object-fit: cover;
 
-    /* CENTRALIZA A IMAGEM */
+    /*
+       CENTRALIZA A FOTO
+       DENTRO DO CARD
+    */
     object-position: center center;
 
     display: block;
@@ -129,7 +174,10 @@ header p {
     background: #e5e7eb;
 }
 
-/* INFORMAÇÕES */
+
+/* =========================
+   INFORMAÇÕES
+========================= */
 
 .informacoes {
     padding: 20px;
@@ -155,7 +203,10 @@ header p {
     color: #374151;
 }
 
-/* MENSAGEM SEM RESULTADO */
+
+/* =========================
+   SEM RESULTADO
+========================= */
 
 .sem-resultado {
     grid-column: 1 / -1;
@@ -169,7 +220,10 @@ header p {
     color: #6b7280;
 }
 
-/* RODAPÉ */
+
+/* =========================
+   RODAPÉ
+========================= */
 
 footer {
     text-align: center;
@@ -183,9 +237,12 @@ footer {
     font-size: 14px;
 }
 
-/* RESPONSIVIDADE */
 
-@media (max-width: 600px) {
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 700px) {
 
     header {
         padding: 35px 15px 45px;
@@ -200,11 +257,18 @@ footer {
     }
 
     .grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 292px;
+
+        justify-content: center;
+    }
+
+    .card {
+        width: 292px;
     }
 
     .card img {
         height: 350px;
+
         object-position: center center;
     }
 }

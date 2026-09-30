@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atores e Atrizes</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+
+        <h1>Atores e Atrizes</h1>
+
+        <p>
+            Conheça atores e atrizes de diferentes países
+        </p>
+
+    </header>
+
+
+    <div class="container">
+
+        <div class="busca">
+
+            <input
+                type="text"
+                id="campoBusca"
+                placeholder="🔎 Digite o nome do ator ou atriz..."
+                oninput="filtrarAtores()"
+            >
+
+        </div>
+
+
+        <div
+            id="listaAtores"
+            class="grid">
+        </div>
+
+    </div>
+
+
+    <footer>
+
+        CheckPoint 2 — Desenvolvimento Web
+
+    </footer>
+
+
+    <script src="dados.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,32 +1,51 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atores e Atrizes</title>
-
+    <meta name="color-scheme" content="light dark">
     <link rel="stylesheet" href="style.css">
+    <script>
+        // Aplica o tema salvo (ou o do sistema) antes de desenhar a página
+        (function () {
+            var t = null;
+            try { t = localStorage.getItem("tema"); } catch (e) {}
+            if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "escuro" : "claro";
+            document.documentElement.dataset.tema = t;
+        })();
+    </script>
 </head>
-
 <body>
 
-    <h1>Atores e Atrizes</h1>
+    <header class="topo">
+        <button id="botaoTema" class="botao-tema" type="button" aria-label="Alternar tema claro/escuro"></button>
+        <h1>Atores e Atrizes</h1>
+        <p>Explore quem faz o cinema acontecer: busque por nome, filtre por país e ordene como preferir.</p>
+    </header>
 
-    <div class="busca">
-        <input
-            type="text"
-            id="campoBusca"
-            placeholder="Digite o nome do ator ou atriz..."
-            oninput="filtrarAtores()"
-        >
-    </div>
+    <main class="container">
+        <div class="ferramentas">
+            <input type="search" id="campoBusca" placeholder="Buscar por nome..." autocomplete="off" aria-label="Buscar ator ou atriz">
 
-    <main id="listaAtores" class="grid"></main>
+            <select id="filtroPais" aria-label="Filtrar por país">
+                <option value="">Todos os países</option>
+            </select>
+
+            <select id="ordem" aria-label="Ordenar por">
+                <option value="nome">Nome (A–Z)</option>
+                <option value="velho">Mais velhos primeiro</option>
+                <option value="novo">Mais novos primeiro</option>
+            </select>
+        </div>
+
+        <p id="contador" class="contador" aria-live="polite"></p>
+        <section id="listaAtores" class="grid"></section>
+    </main>
+
+    <footer>Atores e Atrizes · feito com HTML, CSS e JavaScript</footer>
 
     <script src="dados.js"></script>
     <script src="script.js"></script>
-
 </body>
-
 </html>
